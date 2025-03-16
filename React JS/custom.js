@@ -15,31 +15,8 @@ document.addEventListener("DOMContentLoaded", function () {
   // Audio for notifications
   const notificationSound = new Audio('audio.mp3'); // Add your audio file path here
 
-  // Sample Data (can be replaced with localStorage data)
-  let reminders = [
-    {
-      id: 1,
-      name: "Naproxen",
-      dosage: "3 pills (10mg)",
-      time: "08:00 - 09:00",
-      date: new Date().getDate().toString(),
-      month: new Date().toLocaleString('default', { month: 'long' }),
-      status: true, // true = taken, false = not taken
-      color: "violet",
-      exactTime: "08:00"
-    },
-    {
-      id: 2,
-      name: "Insulin",
-      dosage: "1 injection (8ml)",
-      time: "09:00 - 11:00",
-      date: new Date().getDate().toString(),
-      month: new Date().toLocaleString('default', { month: 'long' }),
-      status: false,
-      color: "orange",
-      exactTime: "09:00"
-    },
-  ];
+  // Initialize reminders array
+  let reminders = [];
 
   // Load reminders from localStorage (if any)
   if (localStorage.getItem("reminders")) {
@@ -59,7 +36,7 @@ document.addEventListener("DOMContentLoaded", function () {
           <select name="medicine">
             <option value="0">All</option>
             ${[...new Set(reminders.map((r) => r.name))]
-              .map((name) => `<option value="${name}">${name}</option>`)
+              .map((name) => <option value="${name}">${name}</option>)
               .join("")}
           </select>
         </div>
@@ -68,14 +45,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
     filteredReminders.forEach((reminder) => {
       const reminderItem = document.createElement("div");
-      reminderItem.className = `row mra_body_data color-${reminder.color}`;
+      reminderItem.className = row mra_body_data color-${reminder.color};
       reminderItem.innerHTML = `
         <div class="col-3">
           <ul>
             ${reminder.time
               .split(" - ")[0]
               .split(":")
-              .map((t) => `<li>${t}</li>`)
+              .map((t) => <li>${t}</li>)
               .join("")}
           </ul>
         </div>
@@ -164,7 +141,7 @@ document.addEventListener("DOMContentLoaded", function () {
     
     const currentDate = new Date();
     const year = currentDate.getFullYear();
-    const monthIndex = new Date(Date.parse(`${monthName} 1, ${year}`)).getMonth();
+    const monthIndex = new Date(Date.parse(${monthName} 1, ${year})).getMonth();
     
     // Create a date object for the first day of the selected month
     const firstDay = new Date(year, monthIndex, 1);
@@ -206,7 +183,7 @@ document.addEventListener("DOMContentLoaded", function () {
       
       const medicineIndicators = uniqueColors.length > 0 
         ? `<span class="medicines">
-            ${uniqueColors.map(color => `<span class="color-${color}"></span>`).join('')}
+            ${uniqueColors.map(color => <span class="color-${color}"></span>).join('')}
            </span>`
         : '';
       
@@ -277,7 +254,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const now = new Date();
     const currentHour = now.getHours().toString().padStart(2, '0');
     const currentMinute = now.getMinutes().toString().padStart(2, '0');
-    const currentTimeStr = `${currentHour}:${currentMinute}`;
+    const currentTimeStr = ${currentHour}:${currentMinute};
     const currentDate = now.getDate().toString();
     const currentMonth = now.toLocaleString('default', { month: 'long' });
     
@@ -358,8 +335,8 @@ document.addEventListener("DOMContentLoaded", function () {
     const newReminder = {
       id: reminders.length + 1,
       name: medicineName,
-      dosage: `${medicineQuantity} ${medicineDosage}`,
-      time: `${medicineTime} - ${medicineTime}`,
+      dosage: ${medicineQuantity} ${medicineDosage},
+      time: ${medicineTime} - ${medicineTime},
       date: selectedDate,
       month: selectedMonth,
       status: false,
