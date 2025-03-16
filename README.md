@@ -9,5 +9,9 @@ This is Our Official Repository for IEM HACKS 3.0
   <li>Sahil Pareek</li>
   <li>Nikhil Sai Pabbathi</li>
 </ol>
-<embed src="Pill Pal Report.pdf" width="500" height="375" 
- type="application/pdf">
+<object class="pdf" 
+            data=
+"Pill Pal Report.pdf"
+            width="800"
+            height="500">
+    </object>
