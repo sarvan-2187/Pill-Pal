@@ -1,0 +1,632 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+body {
+    background-color: #f5f6fa;
+    font-family: 'Poppins', serif;
+}
+
+#mra_app {
+    padding-bottom: 90px;
+}
+
+/** Start Section Header Bar Style **/
+#mra_header_bar {
+    font-size: 30px;
+    font-weight: 500;
+    color: rgba(0,0,0,0.9);
+    padding: 30px 25px;
+    background-color: #fff;
+}
+
+#mra_header_bar .mra_header_icon {
+    text-align: right;
+    font-size: 10px;
+    font-weight: 500;
+    color: rgba(0,0,0,0.4);
+}
+
+/** End Section Header Bar Style **/
+
+/** Start Section Months Bar Style **/
+#mra_months_bar {
+    position: relative;
+    background-color: #fff;
+    padding-bottom: 15px;
+    border-bottom: 1px solid rgba(0,0,0,0.08);
+    overflow: hidden;
+}
+
+#mra_months_bar .row > div {
+    padding: 0;
+}
+
+#mra_months_bar ul {
+    padding: 0;
+}
+
+#mra_months_bar ul li {
+    list-style: none;
+    font-size: 15px;
+    padding: 6px 0;
+    font-weight: 600;
+    float: left;
+    width: calc(100%/7);
+    text-align: center;
+    color: rgba(0,0,0,0.6);
+}
+
+#mra_months_bar:before,
+#mra_months_bar:after {
+    content: '';
+    position: absolute;
+    width: 40px;
+    height: 100%;
+    background: rgba(255,255,255,1);
+    top: 0;
+    z-index: 1;
+    filter: blur(4px);
+    box-shadow: 10px 0 8px rgba(255,255,255,1);
+    opacity: 0.95;
+}
+
+#mra_months_bar:before {
+    margin-left: -30px;
+}
+
+#mra_months_bar:after {
+    right: 0;
+    margin-right: -15px;
+    box-shadow: -10px 0 8px rgba(255,255,255,1);
+}
+
+#mra_months_bar ul li.active {
+    background: rgba(9,16,255,0.08);
+    border-radius: 6px;
+    color: rgba(9,16,255, 1);
+}
+
+/** End Section Months Bar Style **/
+
+/** Start Section Date Bar Style **/
+#mra_date_bar {
+    position: relative;
+    background-color: #fff;
+    padding-bottom: 20px;
+    padding-top: 15px;
+    border-radius: 0 0 30px 30px;
+}
+
+#mra_date_bar ul {
+    padding: 0;
+}
+
+#mra_date_bar ul li {
+    list-style: none;
+    float: left;
+    width: calc(100%/6);
+    text-align: center;
+}
+
+#mra_date_bar ul li div {
+    position: relative;
+    display: inline-block;
+    width: 80%;
+    margin: 14px 0px;
+    padding: 15px 0;
+    background-color: #f5f6fa;
+    border-radius: 8px;
+}
+
+#mra_date_bar ul li span {
+    display: block;
+}
+
+#mra_date_bar ul li span.date {
+    font-size: 15px;
+    font-weight: 600;
+}
+
+#mra_date_bar ul li span.day {
+    font-size: 15px;
+    font-weight: 400;
+    color: rgba(0,0,0,0.5);
+}
+
+#mra_date_bar ul li.active div {
+    background: rgba(9,16,255,1);
+    color: rgba(255,255,255,1);
+}
+
+#mra_date_bar ul li.active span.day {
+    color: rgba(255,255,255,0.8);
+}
+
+#mra_date_bar ul li span.medicines {
+    position: absolute;
+    display: block;
+    text-align: center;
+    top: 0;
+    width: 100%;
+    transform: translateY(-60%);
+}
+
+#mra_date_bar ul li span.medicines span {
+    display: inline-block;
+    width: 7px;
+    height: 7px;
+    border-radius: 100%;
+}
+
+#mra_date_bar ul li.active span.medicines span {
+    border: 1px solid rgba(255,255,255,0.9);
+}
+
+#mra_date_bar ul li span.medicines span.color-violet {
+    background-color: #a600f8;
+}
+
+#mra_date_bar ul li span.medicines span.color-orange {
+    background-color: #fd780b;
+}
+
+#mra_date_bar ul li span.medicines span.color-green {
+    background-color: #338600;
+}
+
+/** End Section Date Bar Style **/
+
+/** Start Section Body Style **/
+#mra_body {
+    margin-top: 20px;
+}
+
+#mra_body .mra_body_header {
+    font-size: 25px;
+    font-weight: 600;
+    padding: 0px 10px;
+}
+
+#mra_body .mra_body_header select {
+    float: right;
+    border: none;
+    font-size: 25px;
+    font-weight: 500;
+    color: rgba(9,16,255,1);
+    background-color: rgba(9,16,255,0.08);
+    padding: 5px;
+    border-radius: 8px;
+    margin-top: -5px;
+}
+
+#mra_body .mra_body_data {
+    padding: 0 10px;
+}
+
+#mra_body .row:nth-child(2) {
+    margin-top: 15px;
+}
+
+#mra_body .mra_body_data ul {
+    padding: 0;
+}
+
+#mra_body .mra_body_data ul li {
+    list-style: none;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 20px 0;
+    color: rgba(0,0,0,0.4);
+}
+
+.mra_body_data .medicine_info {
+    position: relative;
+    background-color: #fff;
+    height: 90%;
+    border-radius: 15px;
+    padding: 20px;
+}
+
+.mra_body_data .medicine_info > span {
+    float: left;
+}
+
+.mra_body_data .medicine_info .m_icon {
+    padding: 10px;
+    margin-right: 20px;
+    display: inline-block;
+    height: 100%;
+    border-radius: inherit;
+}
+
+.mra_body_data .medicine_info .m_icon img {
+    width: 25px;
+}
+
+.mra_body_data .medicine_info .m_info {
+    display: inline-block;
+    padding-top: 5px;
+}
+
+.mra_body_data .medicine_info .m_info > span {
+    display: block;
+}
+
+.mra_body_data .medicine_info .m_info span.m_name {
+    font-size: 18px;
+    font-weight: 600;
+    color: rgba(0,0,0,0.9);
+}
+
+.mra_body_data .medicine_info .m_info span.m_dosage {
+    font-size: 11.5px;
+    font-weight: 600;
+    color: rgba(0,0,0,0.4);
+    margin-top: 1px;
+}
+
+.mra_body_data .medicine_info .m_info span.m_time {
+    position: absolute;
+    font-size: 12.5px;
+    font-weight: 600;
+    color: rgba(0,0,0,0.4);
+    bottom: 0;
+    margin-bottom: 25px;
+}
+
+.mra_body_data .medicine_info .m_status {
+    position: absolute;
+    right: 0;
+    margin-right: 20px;
+    width: 40px;
+    height: 40px;
+    line-height: 39px;
+    text-align: center;
+    color: rgba(0,0,0,0.25);
+    border: 1.5px dashed rgba(0,0,0,0.15);
+    border-radius: inherit;
+}
+
+.mra_body_data .medicine_info .m_status.true {
+    background-color: rgba(14,227,111,0.15);
+    color: rgba(14,227,111,1);
+    border: 1px dashed rgba(0,0,0,0);
+}
+
+#mra_body .col-3 {
+    flex: 0 0 21%;
+    max-width: 21%;
+}
+
+#mra_body .col-9 {
+    flex: 0 0 79%;
+    max-width: 79%;
+    padding-left: 0;
+}
+
+.mra_body_data.color-violet ul li {
+    border-right: 1px solid rgba(166,0,248,0.25);
+    box-shadow: 15px 0 10px -10px rgba(166,0,248,0.15);
+}
+
+.mra_body_data.color-orange ul li {
+    border-right: 1px solid rgba(253,120,11,0.25);
+    box-shadow: 15px 0 10px -10px rgba(253,120,11,0.15);
+}
+
+.mra_body_data ul li:first-child {
+    border-radius: 0 25px 0 0;
+}
+
+.mra_body_data ul li:last-child {
+    border-radius: 0 0 25px 0;
+}
+
+.mra_body_data.color-violet .medicine_info .m_icon {
+    background-color: rgba(166,0,248,0.15);
+}
+
+.mra_body_data.color-orange .medicine_info .m_icon {
+    background-color: rgba(253,120,11,0.15);
+}
+
+/** End Section Body Style **/
+
+/** Start Section Footer Style **/
+#mra_footer {
+    position: fixed;
+    width: 100%;
+    left: 0;
+    bottom: 0;
+    padding: 20px 25px;
+    background-color: #fff;
+    border-radius: 30px 30px 0 0;
+    z-index: 100;
+    box-shadow: 0 -40px 20px -40px rgba(0,0,0,0.1);
+    border-top: 1px solid rgba(0,0,0,0.1);
+}
+
+#mra_footer ul {
+    padding: 0;
+    margin: 0;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+#mra_footer ul li {
+    list-style: none;
+    text-align: center;
+    padding: 12px 0;
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#mra_footer ul li i {
+    font-size: 15px;
+    margin-bottom: 5px;
+}
+
+#mra_footer ul li span {
+    font-size: 14px;
+    margin-top: 3px;
+    display: none;
+}
+
+#mra_footer ul li.active {
+    width: calc(100%/2);
+    flex-grow: 2;
+    background: rgba(9,16,255,0.08);
+    border-radius: 100px;
+    color: rgba(9,16,255, 1);
+}
+
+#mra_footer ul li.active span {
+    display: block;
+}
+
+#mra_footer ul li:not(.active) {
+    width: auto;
+    flex-grow: 1;
+    color: rgba(0,0,0,0.6);
+}
+
+.btnAdd {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 50px;
+    height: 50px;
+    margin-bottom: 80px;
+    margin-right: 25px;
+    border-radius: 50%;
+    background-color: rgba(9,16,255, 1);
+    color: #fff;
+    box-shadow: 10px 10px 15px -5px rgba(9,16,255, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btnAdd:hover {
+    transform: scale(1.05);
+}
+
+/* Medicine Form Modal Styles */
+#medicineFormModal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#medicineForm {
+    background-color: white;
+    padding: 20px;
+    border-radius: 15px;
+    width: 80%;
+    max-width: 500px;
+}
+
+#medicineForm label {
+    display: block;
+    margin-top: 15px;
+    font-weight: 600;
+}
+
+#medicineForm input {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+#medicineForm button {
+    margin-top: 20px;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+#medicineForm button[type="submit"] {
+    background-color: rgba(9,16,255, 1);
+    color: white;
+    margin-right: 10px;
+}
+
+#medicineForm button[type="button"] {
+    background-color: #ddd;
+    color: #333;
+}
+
+/** End Section Footer Style **/
+
+/* Medicine Notification Styles */
+.medicine-notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    z-index: 2000;
+    width: 80%;
+    max-width: 350px;
+    animation: slideIn 0.5s forwards;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.notification-content {
+    padding: 20px;
+}
+
+.notification-content h3 {
+    margin-top: 0;
+    color: rgba(9,16,255,1);
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.notification-content p {
+    margin-bottom: 15px;
+    font-size: 14px;
+}
+
+.notification-close,
+.notification-take {
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.notification-close {
+    background-color: #f1f1f1;
+    color: #333;
+    margin-right: 10px;
+}
+
+.notification-take {
+    background-color: rgba(9,16,255,1);
+    color: white;
+}
+
+.notification-close:hover,
+.notification-take:hover {
+    transform: translateY(-2px);
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    #mra_header_bar {
+        font-size: 24px;
+        padding: 20px 15px;
+    }
+
+    #mra_months_bar ul li {
+        font-size: 13px;
+    }
+
+    #mra_date_bar ul li div {
+        width: 90%;
+    }
+
+    #mra_body .mra_body_header {
+        font-size: 20px;
+    }
+
+    #mra_body .mra_body_header select {
+        font-size: 20px;
+    }
+
+    #mra_footer ul li {
+        font-size: 16px;
+    }
+
+    #mra_footer ul li i {
+        font-size: 12px;
+    }
+
+    #mra_footer ul li.active span {
+        font-size: 12px;
+    }
+
+    .btnAdd {
+        width: 40px;
+        height: 40px;
+        margin-bottom: 70px;
+        margin-right: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    #mra_header_bar {
+        font-size: 20px;
+        padding: 15px 10px;
+    }
+
+    #mra_months_bar ul li {
+        font-size: 11px;
+    }
+
+    #mra_date_bar ul li div {
+        width: 95%;
+    }
+
+    #mra_body .mra_body_header {
+        font-size: 18px;
+    }
+
+    #mra_body .mra_body_header select {
+        font-size: 18px;
+    }
+
+    #mra_footer ul li {
+        font-size: 14px;
+    }
+
+    #mra_footer ul li i {
+        font-size: 10px;
+    }
+
+    #mra_footer ul li.active span {
+        font-size: 10px;
+    }
+
+    .btnAdd {
+        width: 35px;
+        height: 35px;
+        margin-bottom: 60px;
+        margin-right: 10px;
+    }
+}
