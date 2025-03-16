@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donate Now | Pill Pal</title>
+    <link rel="icon" href="Assets/p.svg">
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&family=Poppins:wght@300;400;500;600;700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #ffffff;
+        }
+
+        header {
+            margin: 20px;
+        }
+
+        a {
+            text-decoration: none;
+            color: black;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 20px;
+            background: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .left-section, .right-section {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        img {
+            width: 100%;
+            border-radius: 8px;
+        }
+
+        h1 {
+            font-size: 24px;
+        }
+
+        .donation-options {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 20px 0;
+        }
+
+        .donation-options button, .other-amount {
+            padding: 10px 20px;
+            border: 1px solid #ddd;
+            background: white;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: 0.3s;
+        }
+
+        .donation-options button.active {
+            background: #6c63ff;
+            color: white;
+        }
+
+        .other-amount {
+            flex-grow: 1;
+            border: 1px solid #ddd;
+            padding: 10px;
+        }
+
+        .payment-methods {
+            margin-top: 20px;
+        }
+
+        .payment-methods button {
+            background: #0070ba;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+            font-size: 16px;
+            transition: 0.3s;
+        }
+
+        .payment-methods button:hover {
+            background: #005ea6;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 12px;
+            color: #666;
+            background-color: #f9f9f9;
+            padding: 10px;
+        }
+
+        .radio-container {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .radio-container input {
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <a href="index.html">
+        <h1>Pill Pal</h1>
+    </a>
+</header>
+<hr>    
+<div class="container">
+    <div class="left-section">
+        <img src="Assets/donation.jpg" alt="Donation Event">
+        <p><strong>We are proudly non-profit,</strong> non-corporate and non-compromised. Thousands of people like you help us stand up for a healthy internet for all. We rely on donations to carry out our mission to keep the Web open and free. <strong>Will you give today?</strong></p>
+    </div>
+    <div class="right-section">
+        <h1>Donate now</h1>
+        <div class="radio-container">
+            <label><input type="radio" name="donation-type" checked> One Time</label>
+            <label><input type="radio" name="donation-type"> Monthly</label>
+        </div>
+
+        <div class="donation-options">
+            <button class="donate-btn" data-amount="10">₹10</button>
+            <button class="donate-btn" data-amount="20">₹20</button>
+            <button class="donate-btn" data-amount="30">₹30</button>
+            <button class="donate-btn" data-amount="60">₹60</button>
+            <input type="text" class="other-amount" id="customAmount" placeholder="₹ Other amount">
+        </div>
+
+        <h3>Choose Payment</h3>
+        <div class="payment-methods">
+            <button id="payCard">Credit/Debit Card</button>
+            <button id="payPal">PayTM</button>
+        </div>
+        <p class="footer">Pill Pal is a non-profit organization. Your donations are tax-deductible.</p>
+    </div>
+</div>
+
+<div class="footer">
+    <p>Copyright © 2025 Pill Pal. All rights reserved.</p>
+</div>
+
+<script>
+    // Donation button selection
+    document.querySelectorAll('.donate-btn').forEach(button => {
+        button.addEventListener('click', function () {
+            document.querySelectorAll('.donate-btn').forEach(btn => btn.classList.remove('active'));
+            this.classList.add('active');
+            document.getElementById('customAmount').value = this.getAttribute('data-amount');
+        });
+    });
+
+    // Custom amount clears active selection
+    document.getElementById('customAmount').addEventListener('input', function () {
+        document.querySelectorAll('.donate-btn').forEach(btn => btn.classList.remove('active'));
+    });
+
+    // Payment button event listeners
+    document.getElementById('payCard').addEventListener('click', function () {
+        let amount = document.getElementById('customAmount').value || document.querySelector('.donate-btn.active')?.getAttribute('data-amount') || 0;
+        alert(`Processing ₹${amount} donation via Credit/Debit Card.`);
+    });
+
+    document.getElementById('payPal').addEventListener('click', function () {
+        let amount = document.getElementById('customAmount').value || document.querySelector('.donate-btn.active')?.getAttribute('data-amount') || 0;
+        alert(`Processing ₹${amount} donation via PayTM.`);
+    });
+
+</script>
+</body>
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor Consultation</title>
+    <link rel="icon" href="Assets/p.svg">
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&family=Poppins:wght@300;400;500;600;700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
+        body {
+            font-family: 'Poppins',sans-serif;
+            background-color: #f4f4f9;
+            text-align: center;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 600px;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin: auto;
+        }
+        h2 {
+            color: #8874f4;
+        }
+        .symptom-list {
+            list-style-type: none;
+            padding: 0;
+            margin: 20px 0;
+            text-align: left;
+        }
+        .symptom-item {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #fff;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+        .symptom-item input {
+            margin-right: 10px;
+            pointer-events: none;
+        }
+        button {
+            padding: 10px;
+            width: 100%;
+            background-color: #8874f4;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        button:hover {
+            background-color: #8874f4;
+        }
+        .error {
+            color: red;
+            display: none;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Select Your Symptoms</h2>
+        <ul class="symptom-list">
+            <li class="symptom-item" onclick="toggleCheckbox(event)"><input type="checkbox" name="symptom" value="Fever"> Fever</li>
+            <li class="symptom-item" onclick="toggleCheckbox(event)"><input type="checkbox" name="symptom" value="Cough"> Cough</li>
+            <li class="symptom-item" onclick="toggleCheckbox(event)"><input type="checkbox" name="symptom" value="Headache"> Headache</li>
+            <li class="symptom-item" onclick="toggleCheckbox(event)"><input type="checkbox" name="symptom" value="Stomach Pain"> Stomach Pain</li>
+            <li class="symptom-item" onclick="toggleCheckbox(event)"><input type="checkbox" name="symptom" value="Cold"> Cold</li>
+            <li class="symptom-item" onclick="toggleCheckbox(event)"><input type="checkbox" name="symptom" value="Fatigue"> Fatigue</li>
+            <li class="symptom-item" onclick="toggleCheckbox(event)"><input type="checkbox" name="symptom" value="Dizziness"> Dizziness</li>
+            <li class="symptom-item" onclick="toggleCheckbox(event)"><input type="checkbox" name="symptom" value="Body Pain"> Body Pain</li>
+            <li class="symptom-item" onclick="toggleCheckbox(event)"><input type="checkbox" name="symptom" value="Nausea"> Nausea</li>
+            <li class="symptom-item" onclick="toggleCheckbox(event)"><input type="checkbox" name="symptom" value="Vomiting"> Vomiting</li>
+            <li class="symptom-item" onclick="toggleCheckbox(event)"><input type="checkbox" name="symptom" value="Skin Rash"> Skin Rash</li>
+            <li class="symptom-item" onclick="toggleCheckbox(event)"><input type="checkbox" name="symptom" value="Breathing Issues"> Breathing Issues</li>
+        </ul>
+        <button onclick="validateSymptoms()">Book Consultation</button>
+        <p class="error" id="error-message">Please select at least one symptom before booking.</p>
+    </div>
+
+    <script>
+        function toggleCheckbox(event) {
+            if (event.target.tagName !== 'INPUT') {
+                const checkbox = event.currentTarget.querySelector('input');
+                checkbox.checked = !checkbox.checked;
+            }
+        }
+
+        function validateSymptoms() {
+            const checkboxes = document.querySelectorAll('input[name="symptom"]:checked');
+            const errorMessage = document.getElementById('error-message');
+            
+            if (checkboxes.length === 0) {
+                errorMessage.style.display = 'block';
+            } else {
+                errorMessage.style.display = 'none';
+                window.location.href = "consult-2.html";  
+            }
+        }
+    </script>
+</body>
+</html>

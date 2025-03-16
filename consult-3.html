@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Appointment Booking</title>
+    <link rel="icon" href="Assets/p.svg">
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&family=Poppins:wght@300;400;500;600;700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f4f4f9;
+            text-align: center;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 450px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: left;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        .section-title {
+            font-size: 16px;
+            font-weight: bold;
+            margin: 10px 0;
+            color: #333;
+        }
+
+        .date-selection, .time-selection {
+            display: flex;
+            gap: 10px;
+            overflow-x: auto;
+            padding-bottom: 10px;
+        }
+
+        .date-option {
+            flex: 1;
+            min-width: 100px;
+            padding: 10px;
+            text-align: center;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            cursor: pointer;
+            background: white;
+        }
+
+        .date-option.active {
+            background: #8874f4;
+            color: white;
+            font-weight: bold;
+        }
+
+        .time-slot {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+        }
+
+        .time-button {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            cursor: pointer;
+            background: white;
+            text-align: center;
+        }
+
+        .time-button.active {
+            background: #8874f4;
+            color: white;
+            font-weight: bold;
+        }
+
+        .input-group {
+            margin: 10px 0;
+        }
+
+        label {
+            display: block;
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+
+        input, select {
+            width: 100%;
+            font-family: 'Poppins', sans-serif;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .confirm-btn {
+            width: 100%;
+            font-family: 'Poppins', sans-serif;
+            padding: 12px;
+            background: #8874f4;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 15px;
+        }
+
+        .confirm-btn:hover {
+            background: #a99aff;
+        }
+
+        @media (max-width: 480px) {
+            .time-slot {
+                grid-template-columns: repeat(1, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Book Your Appointment</h2>
+
+        <div class="section-title">Select Date</div>
+        <div class="date-selection" id="dateSelection"></div>
+
+        <div class="section-title">Select Time Slot</div>
+        <div class="time-slot" id="timeSlots"></div>
+
+        <div class="section-title">Enter Your Details</div>
+
+        <div class="input-group">
+            <label for="name">Full Name</label>
+            <input type="text" id="name" placeholder="Enter your name">
+        </div>
+
+        <div class="input-group">
+            <label for="phone">Phone Number</label>
+            <input type="text" id="phone" placeholder="Enter your phone number">
+        </div>
+
+        <div class="input-group">
+            <label for="age">Age</label>
+            <input type="number" id="age" placeholder="Enter your age">
+        </div>
+
+        <div class="input-group">
+            <label for="gender">Gender</label>
+            <select id="gender">
+                <option value="" disabled selected>Select gender</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="other">Other</option>
+            </select>
+        </div>
+
+        <button class="confirm-btn" id="confirmBtn">Confirm Appointment</button>
+    </div>
+
+    <script>
+        function generateDates() {
+            const dateSelection = document.getElementById("dateSelection");
+            dateSelection.innerHTML = ""; 
+
+            for (let i = 0; i < 3; i++) {
+                let date = new Date();
+                date.setDate(date.getDate() + i);
+                
+                let dateOption = document.createElement("div");
+                dateOption.classList.add("date-option");
+                if (i === 0) dateOption.classList.add("active"); 
+                
+                dateOption.innerHTML = `<strong>${date.toLocaleDateString("en-GB", { day: "numeric", month: "short" })}</strong><br>
+                                        <span>${i === 0 ? "Today" : i === 1 ? "Tomorrow" : date.toLocaleDateString("en-GB", { weekday: "long" })}</span>`;
+                dateOption.addEventListener("click", function () {
+                    document.querySelectorAll(".date-option").forEach(el => el.classList.remove("active"));
+                    dateOption.classList.add("active");
+                });
+
+                dateSelection.appendChild(dateOption);
+            }
+        }
+
+        function generateTimeSlots() {
+            const timeSlots = document.getElementById("timeSlots");
+            timeSlots.innerHTML = ""; 
+
+            const slots = [
+                "09:00 AM - 09:15 AM", "09:15 AM - 09:30 AM",
+                "10:00 AM - 10:15 AM", "10:15 AM - 10:30 AM",
+                "11:30 AM - 11:45 AM", "11:45 AM - 12:00 PM",
+                "01:00 PM - 01:15 PM", "01:15 PM - 01:30 PM"
+            ];
+
+            slots.forEach(slot => {
+                let timeButton = document.createElement("div");
+                timeButton.classList.add("time-button");
+                timeButton.innerText = slot;
+
+                timeButton.addEventListener("click", function () {
+                    document.querySelectorAll(".time-button").forEach(el => el.classList.remove("active"));
+                    timeButton.classList.add("active");
+                });
+
+                timeSlots.appendChild(timeButton);
+            });
+        }
+
+        generateDates();
+        generateTimeSlots();
+
+        document.getElementById("confirmBtn").addEventListener("click", function () {
+            let name = document.getElementById("name").value.trim();
+            let phone = document.getElementById("phone").value.trim();
+            let age = document.getElementById("age").value.trim();
+            let gender = document.getElementById("gender").value;
+            let selectedDate = document.querySelector(".date-option.active");
+            let selectedTime = document.querySelector(".time-button.active");
+
+            if (!name || !phone || !age || !gender || !selectedDate || !selectedTime) {
+                alert("Please fill in all fields and select a date and time slot before confirming.");
+                return;
+            }
+
+            window.location.href = "confirmation.html";
+        });
+    </script>
+
+</body>
+</html>

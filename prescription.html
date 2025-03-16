@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Prescription Management</title>
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&family=Poppins:wght@300;400;500;600;700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
+      body {
+        font-family: 'Poppins', sans-serif;
+        background-color: #f4f4f9;
+        color: #333;
+        margin: 0;
+        padding: 0;
+      }
+      .container {
+        max-width: 800px;
+        margin: 50px auto;
+        background: #fff;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+      h2 {
+        text-align: center;
+        color: #0056b3;
+      }
+      form {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        padding: 20px;
+      }
+      .input-group {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .input-group label {
+        min-width: 120px;
+        font-size: 16px;
+        font-weight: bold;
+      }
+      .input-group input {
+        flex: 1;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 16px;
+      }
+      button {
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        font-size: 16px;
+        background-color: #3191f7;
+        color: white;
+        cursor: pointer;
+        width: 100%;
+        transition: all 0.3s linear;
+      }
+      button:hover {
+        background-color: #003d82;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+        display: none;
+      }
+      th, td {
+        border: 1px solid #ccc;
+        padding: 10px;
+        text-align: center;
+      }
+      th {
+        background-color: #0056b3;
+        color: white;
+      }
+      .no-prescription {
+        text-align: center;
+        font-size: 18px;
+        color: #888;
+        margin-top: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h2>Upload Prescription</h2>
+      <form id="uploadForm">
+        <div class="input-group">
+          <label for="patientName">Patient Name:</label>
+          <input type="text" id="patientName" placeholder="Enter Patient Name" required />
+        </div>
+        <div class="input-group">
+          <label for="doctorName">Doctor Name:</label>
+          <input type="text" id="doctorName" placeholder="Enter Doctor Name" required />
+        </div>
+        <div class="input-group">
+          <label for="diseases">Diseases:</label>
+          <input type="text" id="diseases" placeholder="Enter Disease(s)" required />
+        </div>
+        <div class="input-group">
+          <label for="medicines">Medicines:</label>
+          <input type="text" id="medicines" placeholder="Enter Medicines" required />
+        </div>
+        <button type="submit">Upload</button>
+      </form>
+
+      <h2>Prescriptions</h2>
+      <div id="noPrescriptionMessage" class="no-prescription">
+        No prescriptions loaded.
+      </div>
+      <table id="prescriptionTable">
+        <thead>
+          <tr>
+            <th>Patient Name</th>
+            <th>Doctor Name</th>
+            <th>Diseases</th>
+            <th>Medicines</th>
+          </tr>
+        </thead>
+        <tbody id="prescriptionsTable"></tbody>
+      </table>
+    </div>
+
+    <script src="prescription.js"></script>
+  </body>
+</html>

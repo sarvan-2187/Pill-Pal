@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor Selection</title>
+    <link rel="icon" href="Assets/p.svg">
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&family=Poppins:wght@300;400;500;600;700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
+        body {
+            font-family: 'Poppins',sans-serif;
+            background-color: #f4f4f9;
+            text-align: center;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            width: 75%;
+            max-width: 800px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: left;
+        }
+        .doctor-list {
+            list-style: none;
+            padding: 0;
+        }
+        .doctor-item {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            padding: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #fff;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+            margin-bottom: 15px;
+            position: relative;
+        }
+        .doctor-item img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            margin-right: 15px;
+        }
+        .doctor-info {
+            flex-grow: 1;
+            min-width: 200px;
+        }
+        .doctor-name {
+            font-size: 18px;
+            font-weight: bold;
+            margin: 5px 0;
+        }
+        .experience {
+            font-size: 14px;
+            font-weight: bold;
+            color: #0056b3;
+        }
+        .price {
+            font-size: 16px;
+            color: green;
+            font-weight: bold;
+        }
+        .book-btn {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            padding: 10px 15px;
+            background-color: #0056b3;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .book-btn:hover {
+            background-color: #003d82;
+        }
+        @media (max-width: 600px) {
+            .container {
+                width: 90%;
+            }
+            .doctor-item {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+            .doctor-item img {
+                margin-bottom: 10px;
+            }
+            .book-btn {
+                position: static;
+                margin-top: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Select Your Doctor</h2>
+        <ul class="doctor-list">
+            <li class="doctor-item">
+                <img src="user.svg" alt="Doctor">
+                <div class="doctor-info">
+                    <div class="doctor-name">Dr. Aryan Sharma</div>
+                    <div class="experience">10+ Years Experience</div>
+                    <div class="price">INR 500</div>
+                </div>
+                <a href="consult-3.html"><button class="book-btn">Book Now</button></a>
+            </li>
+            <li class="doctor-item">
+                <img src="user.svg" alt="Doctor">
+                <div class="doctor-info">
+                    <div class="doctor-name">Dr. Neha Kapoor</div>
+                    <div class="experience">8+ Years Experience</div>
+                    <div class="price">INR 700</div>
+                </div>
+                <a href="consult-3.html"><button class="book-btn">Book Now</button></a>
+            </li>
+            <li class="doctor-item">
+                <img src="user.svg" alt="Doctor">
+                <div class="doctor-info">
+                    <div class="doctor-name">Dr. Ramesh Verma</div>
+                    <div class="experience">12+ Years Experience</div>
+                    <div class="price">INR 600</div>
+                </div>
+                <a href="consult-3.html"><button class="book-btn">Book Now</button></a>
+            </li>
+            <li class="doctor-item">
+                <img src="user.svg" alt="Doctor">
+                <div class="doctor-info">
+                    <div class="doctor-name">Dr. Pooja Mehta</div>
+                    <div class="experience">5+ Years Experience</div>
+                    <div class="price">INR 550</div>
+                </div>
+                <a href="consult-3.html"><button class="book-btn">Book Now</button></a>
+            </li>
+            <li class="doctor-item">
+                <img src="user.svg" alt="Doctor">
+                <div class="doctor-info">
+                    <div class="doctor-name">Dr. Vikram Patel</div>
+                    <div class="experience">15+ Years Experience</div>
+                    <div class="price">INR 900</div>
+                </div>
+                <a href="consult-3.html"><button class="book-btn">Book Now</button></a>
+            </li>
+            <li class="doctor-item">
+                <img src="user.svg" alt="Doctor">
+                <div class="doctor-info">
+                    <div class="doctor-name">Dr. Sneha Reddy</div>
+                    <div class="experience">7+ Years Experience</div>
+                    <div class="price">INR 650</div>
+                </div>
+                <a href="consult-3.html"><button class="book-btn">Book Now</button></a>
+            </li>
+        </ul>
+    </div>
+</body>
+</html>

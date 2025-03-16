@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us!</title>
+    <link rel="icon" href="Assets/p.svg">
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&family=Poppins:wght@300;400;500;600;700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background-color: #ffffff;
+            color: rgb(0, 0, 0);
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+        }
+        .contact-form {
+            width: 100%;
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
+        }
+        .contact-form h2 {
+            text-align: center;
+            color: rgb(0, 0, 0);
+            margin-bottom: 20px;
+        }
+        .form-input {
+            width: 100%;
+            padding: 10px;
+            font-family: 'Poppins', sans-serif;
+            margin: 10px 0;
+            border: 1.5px solid #555;
+            border-radius: 5px;
+            color: rgb(0, 0, 0);
+            font-size: 1rem;
+        }
+        .form-input:focus {
+            outline: none;
+            border-color: rgb(255, 255, 255);
+            background-color: #dfdede;
+        }
+        .form-textarea {
+            width: 100%;
+            padding: 10px;
+            font-family: 'Poppins', sans-serif;
+            margin: 10px 0;
+            border: 1.5px solid #555;
+            border-radius: 5px;
+            color: rgb(0, 0, 0);
+            font-size: 1rem;
+            height: 150px;
+            resize: vertical;
+        }
+        .form-textarea:focus {
+            outline: none;
+            border-color: rgb(255, 255, 255);
+            background-color: #dfdede;
+        }
+        .submit-btn {
+            width: 100%;
+            padding: 12px;
+            margin-top: 20px;
+            background-color: #8874f4;
+            color: white;
+            font-family: 'Poppins', sans-serif;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .submit-btn:hover {
+            background-color: #714469;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="contact-form">
+        <form action="https://api.web3forms.com/submit" method="POST">
+            <div>
+                <h2>Pill Pal - Contact Us</h2>
+            </div>
+
+            <div class="map-container">
+                <iframe 
+                    width="100%" 
+                    height="400" 
+                    frameborder="0" 
+                    style="border:0" 
+                    allowfullscreen 
+                    loading="lazy" 
+                    src="https://www.google.com/maps?q=13.2627311,80.0271375&hl=en&z=15&output=embed">
+                </iframe>
+            </div>
+            <input type="hidden" name="access_key" value="5e20aae2-0b71-4fc2-9833-d72fb8896a5d">
+            <input type="text" name="name" class="form-input" placeholder="Your Name" required>
+            <input type="email" name="email" class="form-input" placeholder="Your Email" required>
+            <textarea name="message" class="form-textarea" placeholder="Your Message" required></textarea>
+            <button type="submit" class="submit-btn">Send Message</button>
+        </form>
+       
+    </div>
+
+</body>
+</html>
