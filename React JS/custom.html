@@ -3,22 +3,19 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
-        <title>Medication Remainder | Pill Pal</title>
+        <title>UI Design - Medicine Reminder App</title>
         <link href="font-awesome.min.css" rel="stylesheet" type="text/css"/>
         <link href="bootstrap.min.css" rel="stylesheet" type="text/css"/>
         <link href="custom.css" rel="stylesheet" type="text/css"/>
-        <link rel="icon" href="p.svg">
         <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-        <style>
-            @import url("https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&family=Poppins:wght@300;400;500;600;700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
-        </style>
     </head>
-    <body style="font-family: 'Poppins', sans-serif;">
+    <body>
         
         <div class="container-fluid">
             
             <div id="mra_app" class="row">
 
+                <!-- Start Section Header Bar -->
                 <section id="mra_header_bar" class="col-12">
                     <div class="row">
                         <div class="col-8 mra_header_title">
@@ -26,7 +23,9 @@
                         </div>
                     </div>
                 </section>
-
+                <!-- End Section Header Bar -->
+                
+                <!-- Loading Indicator -->
                 <div id="loading-indicator" style="display:none;">
                     <div class="spinner"></div>
                     <p>Loading your reminders...</p>
