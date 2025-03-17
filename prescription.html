@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="styles.css" />
     <style>
       @import url("https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&family=Poppins:wght@300;400;500;600;700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
+      
       body {
         font-family: 'Poppins', sans-serif;
         background-color: #f4f4f9;
@@ -14,6 +15,7 @@
         margin: 0;
         padding: 0;
       }
+
       .container {
         max-width: 800px;
         margin: 50px auto;
@@ -22,35 +24,40 @@
         border-radius: 10px;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
       }
+
       h2 {
         text-align: center;
         color: #0056b3;
       }
+
       form {
         display: flex;
         flex-direction: column;
         gap: 15px;
         padding: 20px;
       }
+
       .input-group {
         display: flex;
-        align-items: center;
-        gap: 10px;
+        flex-direction: column;
+        gap: 5px;
       }
+
       .input-group label {
-        min-width: 120px;
         font-size: 16px;
         font-weight: bold;
       }
+
       .input-group input {
-        flex: 1;
+        width: 100%;
         padding: 10px;
         border: 1px solid #ccc;
         border-radius: 5px;
         font-size: 16px;
       }
+
       button {
-        padding: 10px;
+        padding: 12px;
         border: none;
         border-radius: 5px;
         font-size: 16px;
@@ -60,29 +67,65 @@
         width: 100%;
         transition: all 0.3s linear;
       }
+
       button:hover {
         background-color: #003d82;
       }
+
+      .table-container {
+        overflow-x: auto;
+        margin-top: 20px;
+      }
+
       table {
         width: 100%;
         border-collapse: collapse;
-        margin-top: 20px;
+        min-width: 600px;
         display: none;
       }
+
       th, td {
         border: 1px solid #ccc;
         padding: 10px;
         text-align: center;
+        white-space: nowrap;
       }
+
       th {
         background-color: #0056b3;
         color: white;
       }
+
       .no-prescription {
         text-align: center;
         font-size: 18px;
         color: #888;
         margin-top: 20px;
+      }
+
+      @media (max-width: 600px) {
+        .container {
+          width: 90%;
+          padding: 15px;
+        }
+
+        form {
+          padding: 10px;
+        }
+
+        .input-group label {
+          font-size: 14px;
+        }
+
+        .input-group input {
+          font-size: 14px;
+          padding: 8px;
+        }
+
+        button {
+          font-size: 14px;
+          padding: 10px;
+        }
       }
     </style>
   </head>
@@ -113,17 +156,19 @@
       <div id="noPrescriptionMessage" class="no-prescription">
         No prescriptions loaded.
       </div>
-      <table id="prescriptionTable">
-        <thead>
-          <tr>
-            <th>Patient Name</th>
-            <th>Doctor Name</th>
-            <th>Diseases</th>
-            <th>Medicines</th>
-          </tr>
-        </thead>
-        <tbody id="prescriptionsTable"></tbody>
-      </table>
+      <div class="table-container">
+        <table id="prescriptionTable">
+          <thead>
+            <tr>
+              <th>Patient Name</th>
+              <th>Doctor Name</th>
+              <th>Diseases</th>
+              <th>Medicines</th>
+            </tr>
+          </thead>
+          <tbody id="prescriptionsTable"></tbody>
+        </table>
+      </div>
     </div>
 
     <script src="prescription.js"></script>
