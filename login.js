@@ -1,5 +1,5 @@
 const users = {
-    "MohanSurendra": { password: "Mohan@123", redirect: "dashboard.html" },
+    "TestUser": { password: "TestUser@123", redirect: "dashboard.html" },
 };
 
 function handleLogin() {
