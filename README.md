@@ -1,5 +1,5 @@
-# IEM-HACKS-3.0
-This is Our Official Repository for IEM HACKS 3.0
+# PILL-PAL @ TEAM CodEHaWkS
+This is Our Official Repository for Collaborated Project
 <hr>
 <h1>Team Name: Code Hawks</h1>
 <h1>Members:</h1>
