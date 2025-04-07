@@ -5,7 +5,6 @@ This is Our Official Repository for Collaborated Project
   <li>Mohana Surendra</li>
   <li>Nagarampalli Sarvan Kumar</li>
   <li>Sahil Pareek</li>
-  <li>Nikhil Sai Pabbathi</li>
 </ol>
 <hr>
 Live Here: <a href="https://codehawks-mocha.vercel.app">Deployment Link</a>
