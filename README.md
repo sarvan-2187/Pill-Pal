@@ -8,4 +8,5 @@ This is Our Official Repository for Collaborated Project
 </ol>
 <hr>
 Live Here: <a href="https://codehawks-mocha.vercel.app">Deployment Link</a>
+Documentation: <a href="https://github.com/sarvan-2187/Pill-Pal/blob/main/Pill%20Pal%20Report.pdf">Click Here!</a>
 
